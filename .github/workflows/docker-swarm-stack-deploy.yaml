@@ -24,6 +24,5 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: Connect to Vagrant VM and deploy Docker Swarm stack
       run: |
-         ssh -o StrictHostKeyChecking=no vagrant@4.tcp.eu.ngrok.io -p 15814 "cd /home/vagrant/docker_services_stacks/flask/"
-         ssh -o StrictHostKeyChecking=no vagrant@4.tcp.eu.ngrok.io -p 15814 "docker stack deploy --compose-file compose.yaml stackdemo"
+         ssh -o StrictHostKeyChecking=no vagrant@4.tcp.eu.ngrok.io -p 15814 "cd /home/vagrant/docker_services_stacks/flask/ &&  docker stack deploy --compose-file compose.yaml stackdemo"
       shell: bash
